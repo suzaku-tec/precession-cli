@@ -1,0 +1,35 @@
+{
+  "name": "precession-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "clean": "rimraf ./dist",
+    "start": "npm run clean && npm run build && node ./dist/main.js",
+    "create:question": "ts-node src/setupGemini.ts",
+    "print:task": "ts-node src/printTask.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@google/genai": "^1.27.0",
+    "cron-parser": "^5.4.0",
+    "dotenv": "^17.2.3",
+    "node-schedule": "^2.1.1",
+    "rimraf": "^6.0.1",
+    "winston": "^3.18.3",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "@types/node-schedule": "^2.1.8",
+    "@types/winston": "^2.4.4",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
