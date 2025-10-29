@@ -26,10 +26,11 @@ questions.forEach((question) => {
     module: 'dist/tasks/geminiQuestion.js',
     params: [question.question],
   };
+  logger.info(`Adding new task: ${task.name}`);
   newTasks.push(task);
 });
 
 // JSONファイルの書き込み
 logger.debug("Writing task configuration...");
 fs.writeFileSync(tasksPath, JSON.stringify(newTasks, null, 2), 'utf8');
-logger.debug(`Updated task configuration written to ${tasksPath}`);
+logger.info(`Updated task configuration written to ${tasksPath}`);

@@ -28,8 +28,25 @@ export default class GeminiQuestion implements TaskExecutor {
 
       // ファイルパス作成+出力
       const filePath = path.join(dirPath, fileName);
-      await fs.writeFile(filePath, answer, 'utf-8');
-      logger.debug(`Writing answer to file: ${filePath}`);
+
+      const writeData = `
+# リクエスト
+modelVersion: ${answer.modelVersion}
+responseId: ${answer.responseId}
+createTime: ${answer.createTime}
+usageMetadata: ${JSON.stringify(answer.usageMetadata, null, 2)}
+
+# 質問
+question: ${args[0]}
+
+# feedback
+${answer.promptFeedback ?? "None Feedback"}
+
+# 回答
+${answer.text ?? ""}`;
+
+      await fs.writeFile(filePath, writeData, 'utf-8');
+      logger.info(`Writing response data to file: ${filePath}`);
     });
   }
 }
