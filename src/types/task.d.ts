@@ -4,7 +4,7 @@ interface TaskInfo {
 }
 
 interface TaskExecutor {
-  execute(taskInfo: TaskInfo, args: string[]): void;
+  execute(taskInfo: TaskInfo, paramConfig: TaskParam): void;
 }
 
 interface TaskConfig {
@@ -12,5 +12,12 @@ interface TaskConfig {
   cron: string;
   module: string; // モジュールパス
   comment?: string; // moduleの説明（任意）
-  params?: string[];
+  param?: TaskParam;
 };
+
+interface TaskParam {
+}
+
+interface GeminiQuestionParam extends TaskParam {
+  prompt: string;
+}

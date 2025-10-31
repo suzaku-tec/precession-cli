@@ -5,13 +5,13 @@ import logger from "../util/logger.ts";
 
 export default class GeminiQuestion implements TaskExecutor {
 
-  execute(taskInfo: TaskInfo, args: string[]): void {
-    if (!args || args.length != 1 || !args[0]) {
+  execute(taskInfo: TaskInfo, taskParam: GeminiQuestionParam): void {
+    if (!taskParam) {
       logger.error("引数を指定してください");
       return;
     }
 
-    GenUtil.getInstance().question(args[0]).then(async (answer) => {
+    GenUtil.getInstance().question(taskParam.prompt).then(async (answer) => {
       let root = path.resolve('./report/gemini');
       const now = new Date();
       const year = now.getFullYear();
@@ -37,7 +37,7 @@ createTime: ${answer.createTime}
 usageMetadata: ${JSON.stringify(answer.usageMetadata, null, 2)}
 
 # 質問
-question: ${args[0]}
+${taskParam.prompt}
 
 # feedback
 ${answer.promptFeedback ?? "None Feedback"}

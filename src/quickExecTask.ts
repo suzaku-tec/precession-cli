@@ -24,7 +24,7 @@ tasks.filter(task => task.name === options.task)
     // 実行に必要な情報の読み取り
     const absPath = path.resolve(task.module);
     const fileUrl = pathToFileURL(absPath).href;
-    const params = task.params || [];
+    const params = task.param || [];
     const taskModule = await import(fileUrl);
 
     // タスク情報
