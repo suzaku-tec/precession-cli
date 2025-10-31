@@ -24,7 +24,7 @@ questions.forEach((question) => {
     name: `${question.name}`,
     cron: question.cron,
     module: 'dist/tasks/geminiQuestion.js',
-    params: [question.question],
+    param: [question.question],
   };
   logger.info(`Adding new task: ${task.name}`);
   newTasks.push(task);
