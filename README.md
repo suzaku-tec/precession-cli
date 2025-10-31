@@ -8,3 +8,7 @@
 - "create:question": questionList.json を task 化する
 - "print:task": task 内容をコンソールに表示
 - "execute:task": task の即時実行
+
+# やることメモ
+
+- remark/unified 使った markdown 解析
