@@ -36,20 +36,21 @@ export default class GeminiQuestion implements TaskExecutor {
       const filePath = path.join(dirPath, fileName);
 
       const writeData = `
+# 質問
+${taskParam.prompt}
+
+# 回答
+${answer.text ?? ""}
+
 # リクエスト
 modelVersion: ${answer.modelVersion}
 responseId: ${answer.responseId}
 createTime: ${answer.createTime}
 usageMetadata: ${JSON.stringify(answer.usageMetadata, null, 2)}
 
-# 質問
-${taskParam.prompt}
-
 # feedback
 ${answer.promptFeedback ?? "None Feedback"}
-
-# 回答
-${answer.text ?? ""}`;
+`;
 
       await fs.writeFile(filePath, writeData, 'utf-8');
       logger.info(`Writing response data to file: ${filePath}`);
