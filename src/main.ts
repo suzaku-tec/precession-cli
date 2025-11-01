@@ -22,10 +22,16 @@ tasks.forEach(async (task) => {
 
   // 実行メソッド
   const mod = taskModule;
-  const job: TaskExecutor = new mod.default();
+  const job: (TaskExecutor & TaskParamChecker) = new mod.default();
 
   // スケジュール登録
   logger.info(`Scheduling task: ${task.name} with cron: ${task.cron}`);
-  schedule.scheduleJob(task.name, task.cron, () => job.execute(taskInfo, param));
+  schedule.scheduleJob(task.name, task.cron, () => {
+    if (job.check && !job.check(param)) {
+      logger.error(`Task parameter check failed for task: ${task.name}`);
+      return;
+    }
+    job.execute(taskInfo, param);
+  });
 });
 
