@@ -7,10 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "clean": "rimraf ./dist",
-    "start": "npm run clean && npm run build && node ./dist/main.js",
+    "start": "npm run clean && npm run build && npm run create:question && node ./dist/main.js",
     "create:question": "ts-node src/setupGemini.ts",
     "print:task": "ts-node src/printTask.ts",
-    "execute:task": "ts-node src/quickExecTask.ts"
+    "execute:task": "ts-node src/quickExecTask.ts",
+    "recovery": "ts-node src/recovery.ts",
+    "help": "npm run build && node ./dist/recovery.js --help && node ./dist/quickExecTask.js --help"
   },
   "keywords": [],
   "author": "",
