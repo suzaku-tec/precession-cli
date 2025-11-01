@@ -11,6 +11,12 @@ export default class GeminiQuestion implements TaskExecutor {
       return;
     }
 
+    if (!taskParam.prompt) {
+      logger.error("promptを指定してください");
+      logger.error(JSON.stringify(taskParam));
+      return;
+    }
+
     GenUtil.getInstance().question(taskParam.prompt).then(async (answer) => {
       let root = path.resolve('./report/gemini');
       const now = new Date();
