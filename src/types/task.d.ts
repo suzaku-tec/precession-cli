@@ -24,6 +24,7 @@ interface TaskParam {
 
 interface GeminiQuestionParam extends TaskParam {
   prompt: string;
+  subDir?: string;
 }
 
 interface AudioTaskParam extends TaskParam {

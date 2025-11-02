@@ -3,20 +3,24 @@ import * as fs from 'fs/promises';
 import * as path from 'path';
 import logger from "../util/logger.ts";
 
-export default class GeminiQuestion implements TaskExecutor {
+export default class GeminiQuestion implements TaskExecutor, TaskParamChecker {
+  check(param: TaskParam): boolean {
+    if (!param) {
+      logger.error("引数を指定してください");
+      return false;
+    }
+
+    const geminiQuestionParam = param as GeminiQuestionParam;
+    if (!geminiQuestionParam.prompt) {
+      logger.error("promptを指定してください");
+      logger.error(JSON.stringify(geminiQuestionParam));
+      return false;
+    }
+
+    return true;
+  }
 
   execute(taskInfo: TaskInfo, taskParam: GeminiQuestionParam): void {
-    if (!taskParam) {
-      logger.error("引数を指定してください");
-      return;
-    }
-
-    if (!taskParam.prompt) {
-      logger.error("promptを指定してください");
-      logger.error(JSON.stringify(taskParam));
-      return;
-    }
-
     GenUtil.getInstance().question(taskParam.prompt).then(async (answer) => {
       let root = path.resolve('./report/gemini');
       const now = new Date();
@@ -26,7 +30,7 @@ export default class GeminiQuestion implements TaskExecutor {
 
       const fileName = year.toString() + month + day + '_' + taskInfo.name + '_answer.md';
 
-      const dirPath = path.join(root, year.toString(), month, day);
+      const dirPath = taskParam.subDir ? path.join(root, year.toString(), month, day, taskParam.subDir) : path.join(root, year.toString(), month, day);
 
       // フォルダ作成（なければ作る・再帰オプション）
       await fs.mkdir(dirPath, { recursive: true });
@@ -36,11 +40,11 @@ export default class GeminiQuestion implements TaskExecutor {
       const filePath = path.join(dirPath, fileName);
 
       const writeData = `
-# 質問
-${taskParam.prompt}
-
 # 回答
 ${answer.text ?? ""}
+
+# 質問
+${taskParam.prompt}
 
 # リクエスト
 modelVersion: ${answer.modelVersion}
