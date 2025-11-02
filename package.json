@@ -12,7 +12,8 @@
     "print:task": "ts-node src/printTask.ts",
     "execute:task": "ts-node src/quickExecTask.ts",
     "recovery": "ts-node src/recovery.ts",
-    "help": "npm run build && node ./dist/recovery.js --help && node ./dist/quickExecTask.js --help"
+    "help": "npm run build && node ./dist/recovery.js --help && node ./dist/quickExecTask.js --help",
+    "execute:geminiHelper": "ts-node src/geminiTaskCreateHelper.ts"
   },
   "keywords": [],
   "author": "",
