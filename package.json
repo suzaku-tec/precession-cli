@@ -8,12 +8,12 @@
     "build": "tsc",
     "clean": "rimraf ./dist",
     "start": "npm run clean && npm run build && npm run create:question && node ./dist/main.js",
-    "create:question": "ts-node src/setupGemini.ts",
-    "print:task": "ts-node src/printTask.ts",
-    "execute:task": "ts-node src/quickExecTask.ts",
-    "recovery": "ts-node src/recovery.ts",
-    "help": "npm run build && node ./dist/recovery.js --help && node ./dist/quickExecTask.js --help",
-    "execute:geminiHelper": "ts-node src/geminiTaskCreateHelper.ts"
+    "cmd:question": "ts-node src/cmd/setupGemini.ts",
+    "cmd:printTask": "ts-node src/cmd/printTask.ts",
+    "cmd:executeTask": "ts-node src/cmd/quickExecTask.ts",
+    "cmd:recovery": "ts-node src/cmd/recovery.ts",
+    "cmd:help": "npm run build && node ./dist/recovery.js --help && node ./dist/quickExecTask.js --help",
+    "cmd:geminiHelper": "ts-node src/cmd/geminiTaskCreateHelper.ts"
   },
   "keywords": [],
   "author": "",

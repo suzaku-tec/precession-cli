@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import logger from './util/logger.ts';
+import logger from '../util/logger.ts';
 import { Command } from 'commander';
 import { pathToFileURL } from 'url';
 

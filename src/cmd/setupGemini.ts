@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import logger from './util/logger.ts';
+import logger from '../util/logger.ts';
 
 // 質問JSONファイルの読み込み
 logger.debug("Loading question list...");

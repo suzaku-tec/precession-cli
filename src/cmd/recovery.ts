@@ -2,7 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
-import logger from './util/logger.ts';
+import logger from '../util/logger.ts';
 import { CronExpressionParser as parser } from 'cron-parser';
 import { Command } from 'commander';
 
