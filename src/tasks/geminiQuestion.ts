@@ -2,6 +2,7 @@ import GenUtil from "../util/genUtil.ts";
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import logger from "../util/logger.ts";
+import TemplateUtils from "../util/templateUtils.ts";
 
 export default class GeminiQuestion implements TaskExecutor, TaskParamChecker {
   check(param: TaskParam): boolean {
@@ -21,7 +22,10 @@ export default class GeminiQuestion implements TaskExecutor, TaskParamChecker {
   }
 
   execute(taskInfo: TaskInfo, taskParam: GeminiQuestionParam): void {
-    GenUtil.getInstance().question(taskParam.prompt).then(async (answer) => {
+
+    const prompt = TemplateUtils.replacePlaceholders(taskParam.prompt);
+
+    GenUtil.getInstance().question(prompt).then(async (answer) => {
       let root = path.resolve('./report/gemini');
       const now = new Date();
       const year = now.getFullYear();
@@ -44,7 +48,7 @@ export default class GeminiQuestion implements TaskExecutor, TaskParamChecker {
 ${answer.text ?? ""}
 
 # 質問
-${taskParam.prompt}
+${prompt}
 
 # リクエスト
 modelVersion: ${answer.modelVersion}
