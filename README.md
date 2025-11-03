@@ -14,17 +14,24 @@
 ### command help
 
 ```
+Usage: printTask [options]
+Options:
+  --sort-cron-time                   sort time in cron expression (default: false)
+  --next-time                        output next execution time (default: false)
+  --output-field <outputFields...>   output field name of task. outputFields: name, cron, module, comment, param (default:["name","cron","comment"])
+  -h, --help                         display help for command
+
+Usage: quickExecTask [options]
+Options:
+  -t, --task <task>  task name
+  -h, --help         display help for command
+
 Usage: recovery [options]
 Options:
   -h, --hour <hour>      Recovery Target Time(h)
   -m, --minute <min>     Recovery Target Time(m)
   -w, --wait <waitTime>  Recovery Wait Time(ms) (default: "60000")
   --help                 display help for command
-
-Usage: quickExecTask [options]
-Options:
-  -t, --task <task>  task name
-  -h, --help         display help for command
 ```
 
 # やることメモ
