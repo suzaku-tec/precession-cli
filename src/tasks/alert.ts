@@ -29,6 +29,13 @@ export default class AudioTask implements TaskExecutor, TaskParamChecker {
 
   execute(taskInfo: TaskInfo, taskParam: AudioTaskParam): void {
 
+    // Check mute status
+    const muteFilePath = path.resolve('config/mute_status.txt');
+    if (fs.existsSync(muteFilePath)) {
+      logger.info(`AudioTask: Mute is enabled. Skipping audio playback for task: ${taskInfo.name}`);
+      return;
+    }
+
     const audioFilePath = path.join(process.cwd(), taskParam.audioFilePath);
 
     logger.info(`Executing audio task: ${taskInfo.name}: param=${audioFilePath}`);

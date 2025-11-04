@@ -18,7 +18,8 @@ Usage: printTask [options]
 Options:
   --sort-cron-time                   sort time in cron expression (default: false)
   --next-time                        output next execution time (default: false)
-  --output-field <outputFields...>   output field name of task. outputFields: name, cron, module, comment, param (default:["name","cron","comment"])
+  --output-field <outputFields...>   output field name of task. outputFields: name, cron, module, comment, param (default:
+                                     ["name","cron","comment"])
   -h, --help                         display help for command
 
 Usage: quickExecTask [options]
@@ -32,6 +33,13 @@ Options:
   -m, --minute <min>     Recovery Target Time(m)
   -w, --wait <waitTime>  Recovery Wait Time(ms) (default: "60000")
   --help                 display help for command
+
+Usage: mute [options]
+Options:
+  -s, --status  output mute status
+  -t, --toggle  toggle mute status
+  -u, --unmute  unmute the alerts
+  -h, --help    display help for command
 ```
 
 # やることメモ
