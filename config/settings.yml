@@ -1,0 +1,4 @@
+voicevox:
+  speakerId: 1,
+  domain: localhost,
+  port: 50021,

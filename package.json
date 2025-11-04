@@ -15,6 +15,7 @@
     "cmd:recovery": "ts-node src/cmd/recovery.ts",
     "cmd:mute": "ts-node src/cmd/mute.ts",
     "cmd:unmute": "ts-node src/cmd/mute.ts -u",
+    "cmd:startVoicevox": "ts-node src/cmd/voicevoxClinet.ts",
     "help:printTask": "ts-node ./src/cmd/printTask.ts --help",
     "help:quickExecTask": "ts-node ./src/cmd/quickExecTask.ts --help",
     "help:recovery": "ts-node ./src/cmd/recovery.ts --help",
@@ -26,10 +27,13 @@
   "type": "module",
   "dependencies": {
     "@google/genai": "^1.27.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/sound-play": "^1.1.3",
+    "child_process": "^1.0.2",
     "commander": "^14.0.2",
     "cron-parser": "^5.4.0",
     "dotenv": "^17.2.3",
+    "js-yaml": "^4.1.0",
     "node-schedule": "^2.1.1",
     "rimraf": "^6.0.1",
     "sound-play": "^1.1.0",
@@ -37,6 +41,7 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@types/howler": "^2.2.12",
     "@types/node": "^24.9.1",
     "@types/node-schedule": "^2.1.8",
     "@types/winston": "^2.4.4",
