@@ -146,3 +146,4 @@ vite.config.ts.timestamp-*
 
 report/gemini/
 resources/**/*/
+report/.obsidian/
