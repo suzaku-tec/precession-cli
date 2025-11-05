@@ -25,6 +25,7 @@ export default class VoiceVoxPlayer {
       method: 'POST',
     });
     const queryJson = await queryRes.json();
+    queryJson.speedScale = voiceVoxConfig.speedScale;
 
     // 2. 合成クエリで音声データ取得
     const synthesisRes = await fetch(`http://${voiceVoxConfig.domain}:${voiceVoxConfig.port}/synthesis?speaker=${speakerId}`, {
@@ -51,13 +52,15 @@ export default class VoiceVoxPlayer {
     fs.writeFileSync(outputPath, buffer);
 
     // 5. 再生
-    soundPlay.play(outputPath).then(() => {
+    return soundPlay.play(outputPath).then(() => {
       logger.info(`Finished playing VOICEVOX audio: ${outputPath}`);
 
       // 6. 再生後にファイル削除
       fs.unlinkSync(outputPath);
+      return Promise.resolve();
     }).catch((error) => {
       logger.error(`Error playing VOICEVOX audio: ${error}`);
+      return Promise.reject(error);
     });
   }
 }

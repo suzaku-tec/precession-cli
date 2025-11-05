@@ -1,4 +1,9 @@
 voicevox:
-  speakerId: 1,
-  domain: localhost,
-  port: 50021,
+  speakerId: 1
+  domain: localhost
+  port: 50021
+  speedScale: 1.2
+
+news:
+  read:
+    fmt: nikkei_fmt

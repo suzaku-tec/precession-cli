@@ -7,4 +7,5 @@ interface VoiceVoxSetting {
   speakerId: number;
   domain: string;
   port: number;
+  speedScale: number;
 }
