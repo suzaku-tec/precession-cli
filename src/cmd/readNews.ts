@@ -4,7 +4,6 @@ import logger from '../util/logger.ts';
 import { Command } from 'commander';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
-import { visit } from 'unist-util-visit';
 import type { Root, Heading, Content, PhrasingContent } from 'mdast';
 import VoiceVoxPlayer from '../util/voiceVoxPlayer.ts';
 
@@ -20,6 +19,7 @@ const targetFile = path.resolve(options.file);
 
 // Markdownファイル読み込み
 const markdown = fs.readFileSync(targetFile, 'utf-8');
+logger.debug(`Read news file: ${targetFile}`);
 
 function getTextFromChildren(children: PhrasingContent[]): string {
   return children
