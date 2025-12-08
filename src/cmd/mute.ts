@@ -38,7 +38,12 @@ if (options.toggle) {
 }
 
 if (options.unmute) {
-  fs.unlinkSync(muteFilePath);
+  if (fs.existsSync(muteFilePath)) {
+    fs.unlinkSync(muteFilePath);
+  } else {
+    logger.info("mute file not found");
+  }
+
   logger.info("Mute status set to off");
   exit(0);
 }
