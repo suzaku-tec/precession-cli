@@ -11,7 +11,7 @@ export default class GenUtil {
 
   private constructor() {
     // プライベートコンストラクタでインスタンス化を防止
-    dotenv.config();
+    dotenv.config({ debug: true, override: true });
     this.ai = new GoogleGenAI({});
   }
 
