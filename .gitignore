@@ -148,3 +148,5 @@ report/gemini/
 resources/**/*/
 report/.obsidian/
 config/mute_status.txt
+
+start-vscode.bat
