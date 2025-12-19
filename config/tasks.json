@@ -1,146 +1,530 @@
 [
   {
-    "name": "日報：経済・ビジネスニュース要約",
+    "name": "天音かなた_01:00告知音声",
+    "cron": "0 1 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/1時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_02:00告知音声",
+    "cron": "0 2 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/2時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_03:00告知音声",
+    "cron": "0 3 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/3時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_04:00告知音声",
+    "cron": "0 4 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/4時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_05:00告知音声",
+    "cron": "0 5 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/5時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_06:00告知音声",
+    "cron": "0 6 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/6時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_07:00告知音声",
+    "cron": "0 7 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/7時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_08:00告知音声",
+    "cron": "0 8 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/8時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_09:00告知音声",
     "cron": "0 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されている経済・ビジネスニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/9時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_10:00告知音声",
+    "cron": "0 10 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/10時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_11:00告知音声",
+    "cron": "0 11 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/11時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_12:00告知音声",
+    "cron": "0 12 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/12時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_13:00告知音声",
+    "cron": "0 13 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/13時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_14:00告知音声",
+    "cron": "0 14 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/14時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_15:00告知音声",
+    "cron": "0 15 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/15時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_16:00告知音声",
+    "cron": "0 16 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/16時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_17:00告知音声",
+    "cron": "0 17 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/17時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_18:00告知音声",
+    "cron": "0 18 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/18時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_19:00告知音声",
+    "cron": "0 19 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/19時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_20:00告知音声",
+    "cron": "0 20 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/20時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_21:00告知音声",
+    "cron": "0 21 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/21時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_22:00告知音声",
+    "cron": "0 22 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/22時.mp3"
+    }
+  },
+  {
+    "name": "天音かなた_23:00告知音声",
+    "cron": "0 23 * * *",
+    "module": "dist/tasks/alert.js",
+    "param": {
+      "audioFilePath": "resources/amane_kanata/23時.mp3"
+    }
+  },
+  {
+    "name": "日報：経済・ビジネスニュース要約",
+    "cron": "30 8 * * *",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{now}}時点の最新情報に基づいて、経済・ビジネス分野において注目度・影響力が高く、広く議論されているトレンドニュースを最大5件抽出してください。それぞれについて一次情報に基づいた調査・要約を行い、下記の構造（Markdown形式）で報告してください。各セクションは2-3文程度とし、信頼性の高い参考リンクを添付してください。\n\n{{fmt:news_fmt}}"
+    }
   },
   {
     "name": "日報：テクノロジー・ITニュース要約",
-    "cron": "2 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されているテクノロジー・ITニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "cron": "32 8 * * *",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{now}}時点の最新情報に基づいて、テクノロジー・ITニュース分野において注目度・影響力が高く、広く議論されているトレンドのニュースを最大5件抽出してください。それぞれについて一次情報に基づいた調査・要約を行い、下記の構造（Markdown形式）で報告してください。各セクションは2-3文程度とし、信頼性の高い参考リンクを添付してください。\n\n{{fmt:news_fmt}}"
+    }
   },
   {
     "name": "日報：国内政治ニュース要約",
-    "cron": "4 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されている国内政治ニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "cron": "34 8 * * *",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{now}}時点の最新情報に基づいて、国内政治ニュース分野において注目度・影響力が高く、広く議論されているトレンドニュースを最大5件抽出してください。それぞれについて一次情報に基づいた調査・要約を行い、下記の構造（Markdown形式）で報告してください。各セクションは2-3文程度とし、信頼性の高い参考リンクを添付してください。\n\n{{fmt:news_fmt}}"
+    }
   },
   {
     "name": "日報：国際・海外政治ニュース要約",
-    "cron": "6 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されている国際・海外政治ニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
-  },
-  {
-    "name": "日報：エンタメ・芸能ニュース要約",
-    "cron": "8 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されているエンタメ・芸能ニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "cron": "36 8 * * *",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{now}}時点の最新情報に基づいて、国際・海外政治ニュース分野において注目度・影響力が高く、広く議論されているトレンドニュースを最大5件抽出してください。それぞれについて一次情報に基づいた調査・要約を行い、下記の構造（Markdown形式）で報告してください。各セクションは2-3文程度とし、信頼性の高い参考リンクを添付してください。\n\n{{fmt:news_fmt}}"
+    }
   },
   {
     "name": "日報：スポーツニュース要約",
-    "cron": "10 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されているスポーツニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "cron": "40 8 * * *",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{now}}時点の最新情報に基づいて、スポーツニュース分野において注目度・影響力が高く、広く議論されているトレンドニュースを最大5件抽出してください。それぞれについて一次情報に基づいた調査・要約を行い、下記の構造（Markdown形式）で報告してください。各セクションは2-3文程度とし、信頼性の高い参考リンクを添付してください。\n\n{{fmt:news_fmt}}"
+    }
   },
   {
-    "name": "サイエンス・医療ニュース要約",
-    "cron": "12 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されているサイエンス・医療ニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
-  },
-  {
-    "name": "ライフスタイル・暮らしニュース要約",
-    "cron": "14 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されているライフスタイル・暮らしニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
-  },
-  {
-    "name": "地域・ローカルニュース要約",
-    "cron": "16 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されている地域・ローカルニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
-  },
-  {
-    "name": "環境・災害ニュース要約",
-    "cron": "18 9 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "24時間以内で、最も重要で広く議論されている環境・災害ニュースは何ですか？トレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項][参考サイトURL]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "name": "週報：サイエンス・医療ニュース要約",
+    "cron": "42 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}を基準に、過去7日間で最も注目されたサイエンス・医療ニュース分野において注目度・影響力が高く、広く議論されているトレンドニュースを最大5件抽出してください。それぞれについて一次情報に基づいた調査・要約を行い、下記の構造（Markdown形式）で報告してください。各セクションは2-3文程度とし、信頼性の高い参考リンクを添付してください。\n\n{{fmt:news_fmt}}"
+    }
   },
   {
     "name": "週間IT技術トレンド",
     "cron": "0 12 * * 1",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "過去7日間で最も注目されたIT技術系のニュースやトピックは何ですか？次のことに関するニュースについて、ニュース毎にトレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}を基準に、過去7日間で最も注目されたIT技術系のニュースやトピック（例：AI、クラウド、セキュリティなど）について、下記指定媒体（例：TechCrunch Japan、日経XTECH、官公庁発表ページ）からトレンドニュースを最大5件抽出してください。\n以下条件に従い、情報収集・要約をお願いします。\n\n- IT技術以外の話題（芸能、生活、一般トレンド）は除外\n- 収集元は日本語の信頼できる公式・業界紙サイト限定\n- 各ニュースにつき、下記フォーマットの各セクション（概要・考察・関連事項など）を2～3文程度で記述\n- 重要度は★1～5で示し、★5が最も重要\n- 関連事項には関連技術や企業、トレンドなどを記載\n- 信頼性の高い参考リンクを必ず添付\n\n報告フォーマット\n{{fmt:news_fmt}}\n\n回答はMarkdown形式でお願いします。"
+    }
   },
   {
     "name": "週間エネルギー技術トレンド",
     "cron": "10 12 * * 1",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "過去7日間で最も注目されたエネルギー技術系のニュースやトピックは何ですか？次のことに関するニュースについて、ニュース毎にトレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、[タイトル][概要][考察][関連事項]の段落を分けて、markdown形式で回答してください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}を基準に、過去7日間で最も注目されたエネルギー技術系のニュースやトピックは何ですか？次のことに関するニュースについて、ニュース毎にトレンドのニュースを５件まで抽出し、それぞれ情報収集して要約して報告してください。報告内容は、下記フォーマットでmarkdown形式で回答してください。\n\n報告フォーマット\n{{fmt:news_fmt}}"
+    }
   },
   {
     "name": "週間映画情報",
     "cron": "0 8 * * 4",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "直近1週間の新規公開予定の映画について教えて下さい。markdown形式で、映画タイトル、公開日、監督、キャスト、ジャンル、あらすじを含めてリストアップしてください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}を基準に、直近1週間の新規公開予定の映画について教えて下さい。markdown形式で、映画タイトル、公開日、監督、キャスト、ジャンル、あらすじを含めてリストアップして表にまとめてください。"
+    }
   },
   {
     "name": "週間漫画情報",
     "cron": "30 8 * * 4",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "直近1週間の新規発売予定の漫画について教えて下さい。markdown形式で、漫画タイトル、発売日、著者、出版社、あらすじを含めてリストアップしてください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}を基準に、今後1週間以内（または直近7日以内）に新しく発売予定の漫画を教えてください。  \n出力はMarkdown形式の表で作成してください。  \n各行には以下の情報を含めてください：  \n- タイトル  \n- 発売日（YYYY年MM月DD日形式）  \n- 著者名  \n- 出版社名（正式名称）  \n- あらすじ（100文字程度で簡潔に）  \n\n表の前には、「### 直近発売予定の漫画リスト」という見出しを付けてください。  \nデータがない場合は「該当する新刊情報は見つかりませんでした。」と出力してください。"
+    }
   },
   {
     "name": "日経平均株価情報",
-    "cron": "50 8 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "昨日の日経平均株価の動向について、各分野の変動と主要な変動要因、今後の展望を含めてmarkdown形式で要約してください。"
-    ]
+    "cron": "50 8 * * 2-6",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{now-1d:YYYY/MM/DD}}の日経平均株価の動向について、次の観点に沿ってmarkdown形式で要約してください。数値・企業名などの正確性重視し、関連指数（例：TOPIX、先物）も可能であれば触れる。投資判断に活かせる具体的示唆を含める。\n\n報告フォーマット\n{{fmt:nikkei_fmt}}"
+    }
   },
   {
     "name": "週間スポーツハイライト",
     "cron": "0 18 * * 5",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "過去7日間の主要なスポーツイベントの結果とハイライトを教えて下さい。markdown形式で、各スポーツイベントの概要、重要な出来事、選手のパフォーマンス、参考サイトのURLを含めて要約してください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}を基準に、過去7日間の主要な国内・国外の日本人スポーツ情報の結果とハイライトを教えて下さい。markdown形式で、各スポーツイベントの概要、重要な出来事、選手のパフォーマンス、参考サイトのURLを含めて要約してください。"
+    }
   },
   {
     "name": "今日は何の日？",
     "cron": "45 8 * * *",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "今日は何の日ですか？歴史的な出来事、有名な誕生日、記念日などを含めてmarkdown形式で教えてください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}は何の日ですか？国内の歴史的な出来事、国内の有名な誕生日、国内の記念日、世界史的に重要な日などを、ウンチクを含めてmarkdown形式で教えてください。"
+    }
   },
   {
     "name": "本日のできごとのサマリ",
     "cron": "00 21 * * 1-5",
-    "module": "dist/tasks/geminiQuestion.js",
-    "params": [
-      "本日起こった出来事の中で、特に注目すべきものを10つピックアップし、それぞれについて簡潔に要約してください。markdown形式で、各出来事のタイトル、概要、影響、参考サイトのURLを含めて報告してください。"
-    ]
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "{{today}}の00:00から{{now}}までに起こった国内の出来事の中で、特に注目すべきものを10個までピックアップし、それぞれについて簡潔に要約してください。markdown形式で、各出来事のタイトル、概要、影響、参考サイトのURLを含めて報告してください。"
+    }
+  },
+  {
+    "name": "週報：情報収集_ソフトウェア開発・プログラミングツール",
+    "cron": "4 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nソフトウェア開発・プログラミングツール\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_プログラミング言語",
+    "cron": "5 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nプログラミング言語\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_開発フレームワーク・ライブラリ",
+    "cron": "6 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \n開発フレームワーク・ライブラリ\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_IDE・エディタ",
+    "cron": "7 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nIDE・エディタ\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_DevOps_CI_CD",
+    "cron": "8 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nDevOps・CI/CD\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_バージョン管理・コラボレーションツール",
+    "cron": "9 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nバージョン管理・コラボレーションツール\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_ソフトウェア開発手法・プロセス",
+    "cron": "10 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nソフトウェア開発手法・プロセス\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_UI_UX関連ツール・技術",
+    "cron": "11 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nUI/UX関連ツール・技術\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_ネットワーク・通信技術（5G、6G、IoTなど）",
+    "cron": "12 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nネットワーク・通信技術（5G、6G、IoTなど）\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_データ分析・ビッグデータ",
+    "cron": "13 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nデータ分析・ビッグデータ\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_ロボティクス・自動化",
+    "cron": "14 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nロボティクス・自動化\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報：情報収集_ブロックチェーン・分散型技術",
+    "cron": "15 9 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは専門のIT技術アナリストです。\n以下のテーマについて、{{now}}時点の最新情報に基づき、指定のフォーマットでmarkdown形式で回答してください。\n\n【質問テーマ】  \nブロックチェーン・分散型技術\n\n【回答フォーマット】  \n{{fmt:tec_report_fmt}}\n"
+    }
+  },
+  {
+    "name": "週報_市場分析：クラウド市場",
+    "cron": "20 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nクラウド市場（IaaS, PaaS, SaaSなど）について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：半導体市場（メモリ、CPU、AIチップなど）",
+    "cron": "21 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。\n半導体市場（メモリ、CPU、AIチップなど）について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：AI・機械学習市場",
+    "cron": "22 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nAI・機械学習市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：モバイル・通信機器市場",
+    "cron": "23 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nモバイル・通信機器市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：サイバーセキュリティ市場",
+    "cron": "24 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nサイバーセキュリティ市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：IoT（モノのインターネット）市場",
+    "cron": "25 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nIoT（モノのインターネット）市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：ソフトウェア開発ツール市場",
+    "cron": "26 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nソフトウェア開発ツール市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：データ分析・ビッグデータ市場",
+    "cron": "27 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nデータ分析・ビッグデータ市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:product_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：B2C市場（一般消費者向け製品やサービス）",
+    "cron": "28 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nB2C市場（一般消費者向け製品やサービス）について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:corp_market_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：B2B市場（企業向けソリューションやサービス）",
+    "cron": "29 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nB2B市場（企業向けソリューションやサービス）について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:corp_market_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：AIプラットフォーム市場",
+    "cron": "32 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nAIプラットフォーム市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:corp_market_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：クラウドセキュリティ市場",
+    "cron": "33 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nクラウドセキュリティ市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:corp_market_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：エッジコンピューティング市場",
+    "cron": "34 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \nエッジコンピューティング市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:corp_market_fmt}}"
+    }
+  },
+  {
+    "name": "週報_市場分析：5G通信インフラ市場",
+    "cron": "36 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたは企業向けの市場分析の専門家です。  \n5G通信インフラ市場について、{{today}}を基準に過去一週間の最新情報に基づき、以下のフォーマットでmarkdown形式で回答してください。回答はビジネスに実用的な視点でまとめてください。\n\n【回答フォーマット】\n{{fmt:corp_market_fmt}}"
+    }
+  },
+  {
+    "name": "週報_業界イベント分析：主要ITテクノロジーイベントのレビュー",
+    "cron": "37 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたはITテクノロジー業界の専門家です。過去一週間で開催された主要な業界イベントやカンファレンスについて以下の情報を教えてください。\n\n1. イベントの主要ハイライトや発表内容の要約\n\n2. イベントで注目された最新のトレンドや技術動向\n\n3. 今後の業界に影響を与える可能性のあるポイント\n\n回答は要点を簡潔にまとめ、技術用語を適切に使って下記のフォーマットでmarkdown形式で回答してください。\n【回答フォーマット】\n{{fmt:event_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_総合分析：IT分野の技術トレンド_社会課題_政策動向の要約",
+    "cron": "38 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたはIT分野の専門リサーチャーです。以下の三つのテーマに関して、{{today}}を基準に過去一週間の情報を整理して報告してください。\n\n1. 技術トレンド：注目すべきIT技術や革新的な技術進展の現状と将来展望\n2. 社会課題：IT技術が関わる社会的な問題や課題、影響を受ける分野、及び倫理的・運用上の懸念\n3. 政策動向：国内外のIT関連政策、規制、政府の取り組みや推進計画\n\nそれぞれの項目で、重要ポイントを3つずつ示し、最後に全体を簡潔にまとめてください。文章構成は以下のフォーマットのmarkdown形式でお願いします。\n【回答フォーマット】\n{{fmt:issue_report_fmt}}"
+    }
+  },
+  {
+    "name": "週報_総合分析：IT業界の新技術・スタートアップ動向まとめ",
+    "cron": "39 8 * * 5",
+    "module": "dist/tasks/ollamaSearxngQuestion.js",
+    "param": {
+      "prompt": "あなたはIT業界に精通したリサーチャーです（ペルソナ）。\n\n以下の3つのテーマについて、{{now:YYYY}}年以降の最新情報を信頼できる情報源に基づきまとめてください（タスク）。\n\n1. 新技術・製品リリース  \n2. 国内のスタートアップ動向  \n3. 海外のスタートアップ動向  \n\n日本を中心に国内外の状況を踏まえた情報を求めます。各テーマごとに最新の具体的な事例やトレンドを示してください（コンテキスト）。\n\n回答はMarkdown形式で、以下の構成でお願いします（フォーマット）。{{fmt:startup_report_fmt}}"
+    }
   }
 ]

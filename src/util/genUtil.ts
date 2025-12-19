@@ -26,7 +26,7 @@ export default class GenUtil {
   public async question(prompt: string): Promise<GenerateContentResponse> {
     logger.info(`Gemini prompt: ${prompt}`);
     const response = await this.ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.5-flash-lite",
       contents: prompt,
       config: {
         tools: [{ googleSearch: {} }],

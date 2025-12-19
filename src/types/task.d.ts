@@ -31,3 +31,7 @@ interface AudioTaskParam extends TaskParam {
   audioFilePath: string;
 }
 
+interface QuestionParam extends TaskParam {
+  prompt: string;
+  subDir?: string;
+}
