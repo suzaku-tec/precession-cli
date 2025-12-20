@@ -1,6 +1,7 @@
 import ollama from 'ollama';
 import { webSearch } from './searxngUtil.ts';
 import type { ChatResponse } from 'ollama';
+import OllamaUtil from './ollamaUtil.ts';
 import logger from './logger.ts';
 
 export default class OllamaSearxngUtil {
@@ -19,7 +20,12 @@ export default class OllamaSearxngUtil {
   }
 
   async question(question: string): Promise<ChatResponse> {
-    const results = await webSearch(question);
+
+    // 検索用のキーワード抽出
+    const keywordsJson = await OllamaUtil.extractKeywords(question);
+    const searchStr = keywordsJson.keywords.join(" ");
+
+    const results = await webSearch(searchStr);
 
     const context = results.map((r: { title: any; snippet: any; url: any; }) =>
       `【${r.title}】\n${r.snippet}\n出典: ${r.url}`
