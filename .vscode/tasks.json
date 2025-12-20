@@ -2,8 +2,40 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Docker Start",
+      "type": "shell",
+      "command": "docker",
+      "args": [
+        "run",
+        "-d",
+        "--name",
+        "searxng",
+        "-p",
+        "18080:8080",
+        "-v ",
+        "./searxng/config:/etc/searxng",
+        "-v",
+        "./searxng/data:/var/cache/searxng",
+        "-e",
+        "BASE_URL=http://localhost:18080/",
+        "-e",
+        "INSTANCE_NAME=my-searxng",
+        "searxng/searxng:latest"
+      ],
+      "group": "none",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "new"
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      },
+      "problemMatcher": []
+    },
+    {
       "type": "npm",
       "script": "start",
+      "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen"
       },
