@@ -52,7 +52,7 @@ for (const task of newTasks) {
     .where(eq(jobs.name, task.name))
     .then(res => {
       const jobCount = res[0]?.count ?? 0;
-      logger.info(`Database query result for task "${task.name}":${jobCount}`);
+      logger.debug(`Database query result for task "${task.name}":${jobCount}`);
       return jobCount > 0
     })
     .then(async exists => {

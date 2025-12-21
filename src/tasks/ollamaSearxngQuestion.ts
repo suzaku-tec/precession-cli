@@ -19,7 +19,7 @@ export default class OllamaSearxngQuestion implements TaskExecutor, TaskParamChe
     const prompt = TemplateUtils.replacePlaceholders(taskParam.prompt);
 
     OllamaSearxngUtil.getInstance().question(prompt).then(async (answer) => {
-      let root = path.resolve('./report/gemini');
+      let root = path.resolve('./report/ollama');
       const now = new Date();
       const year = now.getFullYear();
       const month = String(now.getMonth() + 1).padStart(2, '0');

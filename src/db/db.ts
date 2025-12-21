@@ -10,17 +10,17 @@ const dataDir = path.join(process.cwd());
 fs.mkdirSync(dataDir, { recursive: true });
 
 const dbPath = path.join(dataDir, 'db.sqlite');
-console.log('📁 DB Path:', dbPath);
+console.log('DB Path:', dbPath);
 
 const sqlite = new Database(dbPath);
 
 export const db = drizzle(sqlite, { schema });
 
 export async function initDatabase() {
-  console.log('🛠️  Running migrations...');
+  console.log('Running migrations...');
   await migrate(db, { migrationsFolder: './drizzle' });
 
   // テーブル存在確認
   const jobCount = await db.select().from(schema.jobs).limit(1);
-  console.log('✅ Tables ready. Jobs count:', jobCount.length);
+  console.log('Tables ready. Jobs count:', jobCount.length);
 }

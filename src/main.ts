@@ -84,5 +84,8 @@ function insertExecutionRecord(jobId: number, scheduledAt: string, executedAt?: 
   db.insert(executions).values({
     jobId,
     scheduledAt,
+    executedAt,
+    status,
+    errorMessage
   });
 }
