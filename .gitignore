@@ -152,3 +152,5 @@ config/mute_status.txt
 start-vscode.bat
 
 db.sqlite
+
+drizzle

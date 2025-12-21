@@ -21,6 +21,7 @@ logger.debug(`Existing tasks count (excluding geminiQuestion): ${newTasks.length
 // questionList.jsonの内容をtasksに追加
 questions.forEach((question) => {
   const task: TaskConfig = {
+    job_id: -1,
     name: `${question.name}`,
     cron: question.cron,
     module: 'dist/tasks/geminiQuestion.js',

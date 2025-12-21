@@ -12,6 +12,7 @@ interface TaskParamChecker {
 }
 
 interface TaskConfig {
+  job_id: number;
   name: string;
   cron: string;
   module: string; // モジュールパス

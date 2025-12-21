@@ -45,3 +45,17 @@ Options:
 # やることメモ
 
 - remark/unified 使った markdown 解析
+
+# DB 関連
+
+## 初期化
+
+```
+$ npx drizzle-kit push
+```
+
+## 更新
+
+```
+$ npx drizzle-kit generate
+```
