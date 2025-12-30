@@ -145,6 +145,7 @@ vite.config.ts.timestamp-*
 
 
 report/gemini/
+report/ollama/
 resources/**/*/
 report/.obsidian/
 config/mute_status.txt
