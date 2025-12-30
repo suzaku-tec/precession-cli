@@ -31,7 +31,7 @@ tasks.forEach(async (task) => {
   const taskModule = await import(fileUrl);
 
   // タスク情報
-  const taskInfo: TaskInfo = { name: task.name, execDate: new Date().toISOString() };
+  const taskInfo: TaskInfo = { name: task.name, execDate: new Date().toLocaleString() };
 
   // 実行メソッド
   const mod = taskModule;
@@ -44,7 +44,7 @@ tasks.forEach(async (task) => {
       logger.error(`Task parameter check failed for task: ${task.name}`);
 
       // 実行履歴に失敗を記録
-      insertExecutionRecord(task.job_id, fireDate.toISOString(), taskInfo.execDate, 'failed', 'Parameter check failed');
+      await insertExecutionRecord(task.job_id, fireDate.toLocaleString(), taskInfo.execDate, 'failed', 'Parameter check failed');
       return;
     }
 
@@ -53,7 +53,7 @@ tasks.forEach(async (task) => {
       job.execute(taskInfo, param);
 
       // 実行履歴を登録
-      insertExecutionRecord(task.job_id, fireDate.toISOString(), taskInfo.execDate, 'success');
+      await insertExecutionRecord(task.job_id, fireDate.toLocaleString(), taskInfo.execDate, 'success');
     } catch (error) {
 
       // エラーハンドリング
@@ -65,7 +65,7 @@ tasks.forEach(async (task) => {
       }
 
       // 実行履歴に失敗を記録
-      insertExecutionRecord(task.job_id, fireDate.toISOString(), taskInfo.execDate, 'failed', message);
+      await insertExecutionRecord(task.job_id, fireDate.toLocaleString(), taskInfo.execDate, 'failed', message);
       logger.error(`Error executing task ${task.name}: ${message}`);
     }
   });
@@ -80,8 +80,9 @@ tasks.forEach(async (task) => {
  * @param status 実行状態
  * @param errorMessage エラーメッセージ
  */
-function insertExecutionRecord(jobId: number, scheduledAt: string, executedAt?: string, status?: 'pending' | 'success' | 'failed', errorMessage?: string) {
-  db.insert(executions).values({
+async function insertExecutionRecord(jobId: number, scheduledAt: string, executedAt?: string, status?: 'pending' | 'success' | 'failed', errorMessage?: string) {
+  logger.info(`Inserting execution record for jobId: ${jobId}, status: ${status}`);
+  await db.insert(executions).values({
     jobId,
     scheduledAt,
     executedAt,
