@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-local
+    ports:
+      - "127.0.0.1:11434:11434" # ローカル限定（外部不可）
+    volumes:
+      - ollama-data:/root/.ollama # 永続ボリューム（二度と消えず）
+    restart: unless-stopped
+volumes:
+  ollama-data: # 自動作成・モデル保存地
