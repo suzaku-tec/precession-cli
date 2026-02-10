@@ -23,7 +23,10 @@ export type Nikkei225PriceReport = {
   company: string;  // "トヨタ自動車"
   sector: string | undefined;
   date: string | undefined;      // "2026-02-07"
+  high: number;
+  low: number;
   close: number;     // 2850
+  volume: number;
 };
 
 export default class FinanceUtil {

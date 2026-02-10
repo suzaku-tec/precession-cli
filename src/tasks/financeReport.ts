@@ -17,7 +17,10 @@ export default async function execute(targetDate: Date) {
       company: component.company,
       sector: component.sector,
       date: price?.date,
+      high: price?.high ?? NaN,
+      low: price?.low ?? NaN,
       close: price?.close ?? NaN,
+      volume: price?.volume ?? NaN,
     });
   }
   logger.info(`Fetched price data for ${priceList.length} components.`);
@@ -33,7 +36,10 @@ export default async function execute(targetDate: Date) {
       item.company,
       item.sector ?? "",
       item.date ?? "",
+      item.high.toString(),
+      item.low.toString(),
       item.close.toString(),
+      item.volume.toString(),
     ].map(quote).join(",");
   })];
 
@@ -47,5 +53,3 @@ export default async function execute(targetDate: Date) {
     console.error("レポート書き込み失敗:", err);
   });
 }
-
-execute(new Date());
