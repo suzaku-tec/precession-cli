@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { parse } from 'csv-parse/sync';
-import ReportUtils from './reportUtils.ts';
+import logger from './logger.ts';
 
 export type Nikkei225Component = {
   code: string;     // "7203"
@@ -12,7 +12,10 @@ export type Nikkei225Component = {
 export type StooqClosePrice = {
   code: string;      // "7203"
   date: string | undefined;      // "2026-02-07"
+  high: number;
+  low: number;
   close: number;     // 2850
+  volume: number;
 };
 
 export type Nikkei225PriceReport = {
@@ -32,6 +35,7 @@ export default class FinanceUtil {
   public static getInstance(): FinanceUtil {
     if (!FinanceUtil.instance) {
       FinanceUtil.instance = new FinanceUtil();
+      logger.info("FinanceUtil instance created.");
     }
 
     return FinanceUtil.instance;
@@ -42,6 +46,7 @@ export default class FinanceUtil {
     const url = 'https://indexes.nikkei.co.jp/nkave/archives/file/nikkei_stock_average_components_sample(today).csv';
 
     const response = await axios.get(url, { responseType: 'arraybuffer' });
+    logger.info("Fetched Nikkei 225 components CSV.");
     const csvText = response.data;
 
     const records = parse(csvText, {
@@ -84,6 +89,7 @@ export default class FinanceUtil {
         timeout: 10_000,
         responseType: "text",
       });
+      logger.debug(`Fetched Stooq data for ${code} on ${yyyymmdd}.`);
 
       const records = parse(res.data, {
         columns: true,
@@ -97,10 +103,22 @@ export default class FinanceUtil {
       const close = Number(row!.Close);
       if (Number.isNaN(close)) return null;
 
+      const high = Number(row!.High);
+      if (Number.isNaN(high)) return null;
+
+      const low = Number(row!.Low);
+      if (Number.isNaN(low)) return null;
+
+      const volume = Number(row!.Volume);
+      if (Number.isNaN(volume)) return null;
+
       return {
         code,
         date: row!.Date,
+        high,
+        low,
         close,
+        volume,
       };
     } catch (err) {
       console.error(`Stooq fetch failed: ${code}`, err);

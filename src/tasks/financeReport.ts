@@ -1,10 +1,13 @@
 import ReportUtils from "../util/reportUtils.ts";
 import FinanceUtil, { type Nikkei225PriceReport } from "../util/financeUtil.ts";
+import logger from "../util/logger.ts";
 
 export default async function execute(targetDate: Date) {
   const financeUtil = FinanceUtil.getInstance();
 
   const list = await financeUtil.getNikkei225List();
+  logger.info(`Fetched ${list.length} Nikkei 225 components.`);
+
   let priceList: Nikkei225PriceReport[] = [];
   const header = ["code", "company", "sector", "date", "close"];
   for (const component of list) {
@@ -17,6 +20,7 @@ export default async function execute(targetDate: Date) {
       close: price?.close ?? NaN,
     });
   }
+  logger.info(`Fetched price data for ${priceList.length} components.`);
 
   const quote = (value: string | number) => {
     const s = String(value).replace(/"/g, '""');
