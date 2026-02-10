@@ -77,7 +77,7 @@ export default class FinanceUtil {
     const yyyymmdd = `${yyyy}${mm}${dd}`;
 
     const symbol = `${code}.jp`;
-    const url = `https://stooq.com/q/l/?s=${symbol}&f=sd2ohlcv&h&e=csv&&d1=yyyymmdd&d2=yyyymmdd`;
+    const url = `https://stooq.com/q/l/?s=${symbol}&f=sd2ohlcv&h&e=csv&&d1=${yyyymmdd}&d2=${yyyymmdd}`;
 
     try {
       const res = await axios.get(url, {
