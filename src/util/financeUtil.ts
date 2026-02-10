@@ -68,9 +68,16 @@ export default class FinanceUtil {
 
   async fetchPreviousCloseFromStooq(
     code: string
+    , targetDate: Date
   ): Promise<StooqClosePrice | null> {
+
+    const yyyy = targetDate.getFullYear();
+    const mm = String(targetDate.getMonth() + 1).padStart(2, "0");
+    const dd = String(targetDate.getDate()).padStart(2, "0");
+    const yyyymmdd = `${yyyy}${mm}${dd}`;
+
     const symbol = `${code}.jp`;
-    const url = `https://stooq.com/q/l/?s=${symbol}&f=sd2ohlcv&h&e=csv`;
+    const url = `https://stooq.com/q/l/?s=${symbol}&f=sd2ohlcv&h&e=csv&&d1=yyyymmdd&d2=yyyymmdd`;
 
     try {
       const res = await axios.get(url, {

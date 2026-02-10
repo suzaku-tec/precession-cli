@@ -16,16 +16,31 @@ export default class ReportUtils {
     return ReportUtils.instance;
   }
 
-  async writeReportDateDir(fileName: string, data: string): Promise<void> {
+  getReportDateDir(targetDate: Date): string {
     let root = path.resolve('./report/ollama');
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    path.join(root, year.toString(), month, day);
-    const dirPath = path.join(root, year.toString(), month, day);
-    // フォルダ作成（なければ作る・再帰オプション）
+    const year = targetDate.getFullYear();
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const day = String(targetDate.getDate()).padStart(2, '0');
+    return path.join(root, year.toString(), month, day);
+  }
+
+  generateNowDateDir(): Promise<string> {
+    return this.generateDateDir(new Date());
+  }
+
+  async generateDateDir(targetDate: Date): Promise<string> {
+    const dirPath = this.getReportDateDir(targetDate);
     await fs.mkdir(dirPath, { recursive: true });
+    return dirPath;
+  }
+
+  async writeReportNowDateDir(fileName: string, data: string): Promise<void> {
+    const dirPath = await this.generateNowDateDir();
+    return this.writeReportFile(dirPath, fileName, data);
+  }
+
+  async writeReportDateDir(targetDate: Date, fileName: string, data: string): Promise<void> {
+    const dirPath = await this.generateDateDir(targetDate);
     return this.writeReportFile(dirPath, fileName, data);
   }
 
