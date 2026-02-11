@@ -4,6 +4,7 @@ import fs from "fs";
 import { exit } from "process";
 import logger from "../util/logger.ts";
 import ollama from 'ollama';
+import { webSearch } from '../util/searxngUtil.ts';
 
 export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
   execute(taskInfo: TaskInfo, paramConfig: TaskParam): void {
@@ -17,7 +18,10 @@ export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
   async analyze() {
     const reportUtils = ReportUtils.getInstance();
 
-    const dir = reportUtils.getReportDateDir(new Date());
+    const now = new Date();
+    const yestardayStr = this.generateYestardayYyyymmdd(now);
+
+    const dir = reportUtils.getReportDateDir(now);
     const regex = /^nikkei225_prices_.*\.csv$/;
 
 
@@ -32,12 +36,20 @@ export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
 
     const targetFile = files[0]!;
 
-    const prompt = `以下のCSVファイルには、日経225の過去の株価データが含まれています。このデータを分析し、以下の点について回答してください。\n
-1. 過去1年間の株価のトレンド（上昇傾向、下降傾向、横ばいなど）\n
+    const results = await webSearch(`日経平均株価 ${yestardayStr} ニュース`);
+    const webSearchStr = results.forEach((r: { title: any; url: any; snippet: any; }) => {
+      return `##【${r.title}】\n${r.snippet}\n出典: ${r.url}`;
+    }).join('\n\n');
+
+    const prompt = `下記の日経平均銘柄の株価データを分析し、以下の点について日本語で回答してください。\n
+1. 株価のトレンド（上昇傾向、下降傾向、横ばいなど）\n
 2. 特に注目すべき出来事やパターン\n
 3. 今後の株価の予測とその根拠\n\n
-日経平均銘柄の株価情報:\n
-${fs.readFileSync(targetFile, 'utf-8')}`;
+# 関連する最近のニュース記事:\n
+${webSearchStr}\n\n
+# 日経平均銘柄の株価情報: \n
+${fs.readFileSync(targetFile, 'utf-8')}\n
+`;
 
     await ollama.chat({
       model: 'gemma3:4b',
@@ -45,12 +57,29 @@ ${fs.readFileSync(targetFile, 'utf-8')}`;
     }).then(async (answer) => {
       await reportUtils.writeReportNowDateDir(
         `finance_analysis_${(new Date()).toISOString().slice(0, 10).replace(/-/g, "")}.md`,
-        `# 日経225株価分析レポート\n\n${answer.message.content ?? ""}`
+        `# 日経225株価分析レポート\n\n${answer.message.content ?? ""} `
       );
     }).then(() => {
       logger.info("Finance analysis report generated successfully.");
     });
 
+  }
+
+  /**
+   * 対象日付の前日をyyyy-mm-dd形式で取得する
+   * 
+   * @param target 対象日付
+   * @returns yyyy-mm-dd
+   */
+  private generateYestardayYyyymmdd(target: Date): string {
+    const yestarday = new Date(target);
+    yestarday.setDate(target.getDate() - 1);
+
+    const yyyy = yestarday.getFullYear();
+    const mm = String(yestarday.getMonth() + 1).padStart(2, '0');
+    const dd = String(yestarday.getDate()).padStart(2, '0');
+
+    return `${yyyy} -${mm} -${dd} `;
   }
 }
 
