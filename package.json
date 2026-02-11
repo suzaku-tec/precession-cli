@@ -21,11 +21,11 @@
     "cmd:startVoicevox": "ts-node src/cmd/voicevoxManager.ts",
     "cmd:readNews": "ts-node src/cmd/readNews.ts",
     "cmd:financeReport": "ts-node src/cmd/financeReportTask.ts",
+    "cmd:financeAnalysis": "ts-node src/cmd/financeAnalysisTask.ts",
     "help:printTask": "ts-node ./src/cmd/printTask.ts --help",
     "help:quickExecTask": "ts-node ./src/cmd/quickExecTask.ts --help",
     "help:recovery": "ts-node ./src/cmd/recovery.ts --help",
-    "help:mute": "ts-node ./src/cmd/mute.ts --help",
-    "testN255": "ts-node ./src/util/financeUtil.ts"
+    "help:mute": "ts-node ./src/cmd/mute.ts --help"
   },
   "keywords": [],
   "author": "",

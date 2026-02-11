@@ -6,13 +6,14 @@ import { pathToFileURL } from 'url';
 import logger from './util/logger.ts';
 import { db } from './db/db.ts';
 import { executions, jobs } from './db/schema.ts';
+import { eq } from 'drizzle-orm';
 
 // JSONファイルの読み込み
 logger.debug("Loading task configuration...");
 // const configPath = path.resolve('config/tasks.json');
 // const tasks: TaskConfig[] = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
-const jobList = await db.select().from(jobs);
+const jobList = await db.select().from(jobs).where(eq(jobs.isActive, true));
 
 const tasks: TaskConfig[] = jobList.map(row => ({
   job_id: row.id,
