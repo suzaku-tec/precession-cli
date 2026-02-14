@@ -21,11 +21,11 @@ export default class GeminiQuestion implements TaskExecutor, TaskParamChecker {
     return true;
   }
 
-  execute(taskInfo: TaskInfo, taskParam: GeminiQuestionParam): void {
+  async execute(taskInfo: TaskInfo, taskParam: GeminiQuestionParam): Promise<void> {
 
     const prompt = TemplateUtils.replacePlaceholders(taskParam.prompt);
 
-    GenUtil.getInstance().question(prompt).then(async (answer) => {
+    return GenUtil.getInstance().question(prompt).then(async (answer) => {
       let root = path.resolve('./report/gemini');
       const now = new Date();
       const year = now.getFullYear();
@@ -62,6 +62,7 @@ ${answer.promptFeedback ?? "None Feedback"}
 
       await fs.writeFile(filePath, writeData, 'utf-8');
       logger.info(`Writing response data to file: ${filePath}`);
+      return Promise.resolve();
     });
   }
 }

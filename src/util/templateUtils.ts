@@ -67,7 +67,7 @@ export default class TemplateUtils {
    * @returns 
    */
   private static getFmtFileStr(repStr: string): string {
-    console.log(`Getting format file string for: ${repStr}`);
+    logger.info(`Getting format file string for: ${repStr}`);
 
     // 置換文字列のチェック
     const chkResult: boolean = TemplateUtils.isFmtFile(repStr);
@@ -90,7 +90,7 @@ export default class TemplateUtils {
   }
 
   static replaceNowPlaceholders(text: string): string {
-    console.log(`Replacing NOW placeholders in text: ${text}`);
+    logger.info(`Replacing NOW placeholders in text: ${text}`);
     return text.replace(/NOW\s*([+-]\d+[dhm])?(?::([^}]+))?/gi, (match, offset, format) => {
       const now = new Date();
 
@@ -120,7 +120,7 @@ export default class TemplateUtils {
   }
 
   static formatDate(date: Date, format?: string): string {
-    console.log(`Formatting date: ${date} with format: ${format}`);
+    logger.info(`Formatting date: ${date} with format: ${format}`);
     if (!format) {
       // デフォルトフォーマット
       format = 'YYYY-MM-DD HH:mm:ss';

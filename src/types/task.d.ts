@@ -4,7 +4,7 @@ interface TaskInfo {
 }
 
 interface TaskExecutor {
-  execute(taskInfo: TaskInfo, paramConfig: TaskParam): void;
+  async execute(taskInfo: TaskInfo, paramConfig: TaskParam): Promise<void>;
 }
 
 interface TaskParamChecker {

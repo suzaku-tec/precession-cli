@@ -42,23 +42,26 @@ const result = await db
 
 logger.debug(result.length + " tasks found in the database.");
 
-tasks.filter(task => {
+const resumeList = tasks.filter(task => {
   const interval = parser.parse(task.cron);
   const prevRun = interval.prev().toDate();
-
   const lastExecution = result.find(r => r.jobs.id === task.job_id);
-
   const execResult = prevRun.toLocaleDateString() >= (lastExecution?.last_exec?.executed_at ?? "");
   logger.info(execResult + ": (last executed at: " + (lastExecution?.last_exec?.executed_at ?? "") + ", previous scheduled run: " + prevRun.toLocaleString() + ") task:" + task.name);
   return execResult;
 }).filter((task) => {
   return isResume(task);
-}).forEach(async (task) => {
+});
+
+logger.info(resumeList.length + " tasks to resume.");
+
+for (const task of resumeList) {
   logger.info(`Resuming task: ${task.name}`);
   if (!options.noExecute) {
     await executeRecovery(task);
   }
-});
+}
+
 
 async function executeRecovery(task: TaskConfig) {
   logger.info(`Recovering task: ${task.name}`);
@@ -77,12 +80,9 @@ async function executeRecovery(task: TaskConfig) {
   const job: TaskExecutor = new mod.default();
   const fireDate = new Date();
   try {
-    await new Promise(resolve => {
-      job.execute(taskInfo, param);
-      resolve(true);
-    });
+    await job.execute(taskInfo, param);
     await insertExecutionRecord(task.job_id, fireDate.toLocaleString(), taskInfo.execDate, 'success');
-    await wait(1000);
+    return Promise.resolve();
   } catch (error) {
     // エラーハンドリング
     let message = "Unknown error'";
@@ -95,6 +95,7 @@ async function executeRecovery(task: TaskConfig) {
     // 実行履歴に失敗を記録
     await insertExecutionRecord(task.job_id, fireDate.toLocaleString(), taskInfo.execDate, 'failed', message);
     logger.error(`Error executing task ${task.name}: ${message}`);
+    return Promise.reject(error);
   }
 }
 function isResume(task: TaskConfig): boolean {
@@ -102,8 +103,6 @@ function isResume(task: TaskConfig): boolean {
   if (!task.module) {
     return false;
   }
-
-  console.debug("isResume: " + (0 <= task.module.indexOf('ollamaSearxngQuestion')));
   return 0 <= task.module.indexOf('ollamaSearxngQuestion');
 
 }
@@ -122,7 +121,7 @@ function wait(ms: number): Promise<void> {
  * @param status 実行状態
  * @param errorMessage エラーメッセージ
  */
-async function insertExecutionRecord(jobId: number, scheduledAt: string, executedAt?: string, status?: 'pending' | 'success' | 'failed', errorMessage?: string) {
+async function insertExecutionRecord(jobId: number, scheduledAt: string, executedAt?: string, status?: 'pending' | 'success' | 'failed', errorMessage?: string): Promise<void> {
   logger.info(`Inserting execution record for jobId: ${jobId}, status: ${status}`);
   await db.insert(executions).values({
     jobId,
@@ -131,4 +130,6 @@ async function insertExecutionRecord(jobId: number, scheduledAt: string, execute
     status,
     errorMessage
   });
+
+  return Promise.resolve();
 }

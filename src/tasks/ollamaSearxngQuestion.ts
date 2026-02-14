@@ -14,11 +14,11 @@ export default class OllamaSearxngQuestion implements TaskExecutor, TaskParamChe
     return true;
   }
 
-  execute(taskInfo: TaskInfo, taskParam: QuestionParam): void {
-
+  async execute(taskInfo: TaskInfo, taskParam: QuestionParam): Promise<void> {
+    logger.info(`Executing OllamaSearxngQuestion start. task: ${taskInfo.name}`);
     const prompt = TemplateUtils.replacePlaceholders(taskParam.prompt);
 
-    OllamaSearxngUtil.getInstance().question(prompt).then(async (answer) => {
+    return OllamaSearxngUtil.getInstance().question(prompt).then(async (answer) => {
       let root = path.resolve('./report/ollama');
       const now = new Date();
       const year = now.getFullYear();
@@ -59,6 +59,7 @@ logprobs?: ${answer.logprobs ?? "None Logprobs"};
 
       await fs.writeFile(filePath, writeData, 'utf-8');
       logger.info(`Writing response data to file: ${filePath}`);
+      return Promise.resolve();
     });
   }
 }

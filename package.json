@@ -25,7 +25,9 @@
     "help:printTask": "ts-node ./src/cmd/printTask.ts --help",
     "help:quickExecTask": "ts-node ./src/cmd/quickExecTask.ts --help",
     "help:recovery": "ts-node ./src/cmd/recovery.ts --help",
-    "help:mute": "ts-node ./src/cmd/mute.ts --help"
+    "help:mute": "ts-node ./src/cmd/mute.ts --help",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix"
   },
   "keywords": [],
   "author": "",
@@ -62,13 +64,17 @@
     "@types/node": "^24.10.4",
     "@types/node-schedule": "^2.1.8",
     "@types/winston": "^2.4.4",
+    "@typescript-eslint/eslint-plugin": "^8.55.0",
+    "@typescript-eslint/parser": "^8.55.0",
     "drizzle-kit": "^0.31.8",
+    "eslint": "^9.39.2",
     "npm-run-all": "^4.1.5",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
   },
   "volta": {
-    "node": "23.8.0"
+    "node": "23.11.1",
+    "npm": "10.9.4"
   }
 }

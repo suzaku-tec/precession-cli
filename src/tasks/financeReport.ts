@@ -8,8 +8,8 @@ export default class FinanceReport implements TaskExecutor, TaskParamChecker {
     // No specific param checks for now
     return true;
   }
-  execute(taskInfo: TaskInfo, taskParam: TaskParam): void {
-    this.getNikkei225PriceReport(new Date());
+  async execute(taskInfo: TaskInfo, taskParam: TaskParam): Promise<void> {
+    return this.getNikkei225PriceReport(new Date());
   }
 
   async getNikkei225PriceReport(targetDate: Date): Promise<void> {

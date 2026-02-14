@@ -7,15 +7,15 @@ import ollama from 'ollama';
 import { webSearch } from '../util/searxngUtil.ts';
 
 export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
-  execute(taskInfo: TaskInfo, paramConfig: TaskParam): void {
-    this.analyze();
+  async execute(taskInfo: TaskInfo, paramConfig: TaskParam): Promise<void> {
+    return this.analyze();
   }
 
   check(param: TaskParam): boolean {
     return true;
   }
 
-  async analyze() {
+  async analyze(): Promise<void> {
     const reportUtils = ReportUtils.getInstance();
 
     const now = new Date();
@@ -51,7 +51,7 @@ ${webSearchStr}\n\n
 ${fs.readFileSync(targetFile, 'utf-8')}\n
 `;
 
-    await ollama.chat({
+    return await ollama.chat({
       model: 'gemma3:4b',
       messages: [{ role: 'user', content: prompt }]
     }).then(async (answer) => {

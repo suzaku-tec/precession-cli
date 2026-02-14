@@ -35,7 +35,8 @@ export default class OllamaSearxngUtil {
 
     const res = await ollama.chat({
       model: 'gemma3:4b',
-      messages: [{ role: 'user', content: prompt }]
+      messages: [{ role: 'user', content: prompt }],
+      stream: false,
     });
 
     return res;

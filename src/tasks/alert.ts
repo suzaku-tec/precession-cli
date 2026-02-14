@@ -27,7 +27,7 @@ export default class AudioTask implements TaskExecutor, TaskParamChecker {
     return true;
   }
 
-  execute(taskInfo: TaskInfo, taskParam: AudioTaskParam): void {
+  async execute(taskInfo: TaskInfo, taskParam: AudioTaskParam): Promise<void> {
 
     // Check mute status
     const muteFilePath = path.resolve('config/mute_status.txt');
@@ -39,11 +39,12 @@ export default class AudioTask implements TaskExecutor, TaskParamChecker {
     const audioFilePath = path.join(process.cwd(), taskParam.audioFilePath);
 
     logger.info(`Executing audio task: ${taskInfo.name}: param=${audioFilePath}`);
-    audioPlayer.play(audioFilePath).then(() => {
+    await audioPlayer.play(audioFilePath).then(() => {
       logger.info(`AudioTask: Finished playing audio file: ${audioFilePath}`);
     }).catch((error) => {
       logger.error(`AudioTask: Error playing audio file: ${error}`);
     });
+    return Promise.resolve();
   }
 }
 
