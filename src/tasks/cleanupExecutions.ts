@@ -6,7 +6,7 @@ import logger from '../util/logger.ts';
 // 1ヶ月前の日付を計算
 const date = new Date();
 date.setMonth(date.getMonth() - 1);
-const threshold = date.toISOString();
+const threshold = date.toLocaleDateString();
 
 logger.info(`Deleting executions scheduled before: ${threshold}`);
 
