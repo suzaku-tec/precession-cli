@@ -107,11 +107,6 @@ function isResume(task: TaskConfig): boolean {
 
 }
 
-function wait(ms: number): Promise<void> {
-  logger.debug(`Waiting for ${ms}ms...`);
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 /**
  * 実行履歴の登録
  * 

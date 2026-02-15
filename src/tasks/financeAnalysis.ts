@@ -24,6 +24,10 @@ export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
     const dir = reportUtils.getReportDateDir(now);
     const regex = /^nikkei225_prices_.*\.csv$/;
 
+    if (!fs.existsSync(dir)) {
+      logger.error("Report directory does not exist.");
+      exit(0);
+    }
 
     const files = fs.readdirSync(dir)
       .filter(file => regex.test(file))
