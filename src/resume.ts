@@ -103,7 +103,7 @@ function isResume(task: TaskConfig): boolean {
   if (!task.module) {
     return false;
   }
-  return 0 <= task.module.indexOf('ollamaSearxngQuestion');
+  return 0 <= task.module.indexOf('ollamaSearxngQuestion') || task.module.indexOf('financeAnalysis') >= 0 || task.module.indexOf('financeReport') >= 0;
 
 }
 
