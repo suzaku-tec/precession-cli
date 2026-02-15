@@ -41,7 +41,8 @@ export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
     const targetFile = files[0]!;
 
     const results = await webSearch(`日経平均株価 ${yestardayStr} ニュース`);
-    const webSearchStr = results.forEach((r: { title: any; url: any; snippet: any; }) => {
+
+    const webSearchStr = results.map((r: { title: any; url: any; snippet: any; }) => {
       return `##【${r.title}】\n${r.snippet}\n出典: ${r.url}`;
     }).join('\n\n');
 
@@ -57,7 +58,7 @@ ${fs.readFileSync(targetFile, 'utf-8')}\n
 
     return await ollama.chat({
       model: 'gemma3:4b',
-      messages: [{ role: 'user', content: prompt }]
+      messages: [{ role: 'user', content: prompt }, { role: 'system', content: 'あなたは金融アナリストです。日経平均株価の分析を行い、日本語で回答してください。' }],
     }).then(async (answer) => {
       await reportUtils.writeReportNowDateDir(
         `finance_analysis_${(new Date()).toISOString().slice(0, 10).replace(/-/g, "")}.md`,
