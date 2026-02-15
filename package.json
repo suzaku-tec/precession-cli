@@ -22,6 +22,7 @@
     "cmd:readNews": "ts-node src/cmd/readNews.ts",
     "cmd:financeReport": "ts-node src/cmd/financeReportTask.ts",
     "cmd:financeAnalysis": "ts-node src/cmd/financeAnalysisTask.ts",
+    "cmd:cleanupExecutions": "ts-node src/tasks/cleanupExecutions.ts",
     "help:printTask": "ts-node ./src/cmd/printTask.ts --help",
     "help:quickExecTask": "ts-node ./src/cmd/quickExecTask.ts --help",
     "help:recovery": "ts-node ./src/cmd/recovery.ts --help",
