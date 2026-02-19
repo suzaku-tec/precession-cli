@@ -9,10 +9,10 @@ export default class FinanceReport implements TaskExecutor, TaskParamChecker {
     return true;
   }
   async execute(taskInfo: TaskInfo, taskParam: TaskParam): Promise<void> {
-    return this.getNikkei225PriceReport(new Date());
+    await this.getNikkei225PriceReport(new Date());
   }
 
-  async getNikkei225PriceReport(targetDate: Date): Promise<void> {
+  async getNikkei225PriceReport(targetDate: Date): Promise<string> {
     const financeUtil = FinanceUtil.getInstance();
 
     const list = await financeUtil.getNikkei225List();
@@ -53,14 +53,17 @@ export default class FinanceReport implements TaskExecutor, TaskParamChecker {
       ].map(quote).join(",");
     })];
 
-    await ReportUtils.getInstance().writeReportDateDir(
+    const csvData = csvLines.join("\n");
+    return await ReportUtils.getInstance().writeReportDateDir(
       targetDate,
       `nikkei225_prices_${(targetDate).toISOString().slice(0, 10).replace(/-/g, "")}.csv`,
-      csvLines.join("\n")
+      csvData
     ).then(() => {
       console.log("日経225価格レポートを書き込みました。");
+      return Promise.resolve(csvData);
     }).catch((err) => {
       console.error("レポート書き込み失敗:", err);
+      return Promise.reject(err);
     });
   }
 }

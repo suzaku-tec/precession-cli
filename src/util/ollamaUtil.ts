@@ -1,4 +1,4 @@
-import ollama from 'ollama';
+import ollama, { type Tool } from 'ollama';
 import logger from './logger.ts';
 
 export default class OllamaUtil {
@@ -16,6 +16,24 @@ export default class OllamaUtil {
       return JSON.parse(jsonMatch![1]!);
     } catch (e) {
       throw new Error(`JSONパースエラー: ${(e as Error).message}`);
+    }
+  }
+
+  static async ollamaToolCat(messages: { role: string; content: string }[], tools: Tool[]): Promise<any> {
+    const response = await ollama.chat({
+      model: 'qwen3',
+      messages,
+      tools,
+      think: true
+    })
+    messages.push(response.message);
+
+    if (response.message.tool_calls && response.message.tool_calls.length > 0) {
+      for (const call of response.message.tool_calls) {
+
+        const tool = tools.find(t => t.function?.name === call.function.name);
+
+      }
     }
   }
 }
