@@ -1,0 +1,6 @@
+{
+  "entry": ["src/main.ts","src/tasks/alert.ts","src/tasks/geminiQuestion.ts","src/tasks/ollamaSearxngQuestion.ts"],
+  "project": ["src/**/*.ts"],
+  "ignore": ["**/*.d.ts", "**/fixtures"],
+  "ignoreDependencies": ["hidden-package"]
+}
