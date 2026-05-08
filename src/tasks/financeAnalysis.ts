@@ -2,6 +2,7 @@ import ReportUtils from "../util/reportUtils.ts";
 import ollama, { type Message } from 'ollama';
 import { webSearch } from '../util/searxngUtil.ts';
 import N255 from "../ollama-tool/n225.ts";
+import Summary from "../util/summary.ts";
 
 export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
   async execute(taskInfo: TaskInfo, paramConfig: TaskParam): Promise<void> {
@@ -20,8 +21,12 @@ export default class FinanceAnalysis implements TaskExecutor, TaskParamChecker {
 
     const results = await webSearch(`日経平均株価 ${yestardayStr} ニュース`);
 
-    const webSearchStr = results.map((r: { title: any; url: any; snippet: any; }) => {
-      return `##【${r.title}】\n${r.snippet}\n出典: ${r.url}`;
+    const webSearchStr = results.map(async (r: { title: string; url: string; snippet: string; }) => {
+
+      // スニペットを要約する
+      const summary = await Summary.getInstance().execute(r.snippet);
+
+      return `##【${r.title}】\n${summary}\n出典: ${r.url}`;
     }).join('\n\n');
 
     const prompt = `下記の日経平均銘柄の株価データを分析し、以下の点について日本語で回答してください。\n

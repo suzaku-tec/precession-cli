@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const SEARXNG_URL = 'http://localhost:18080/search';
 
-export async function webSearch(query: string) {
+export async function webSearch(query: string): Promise<{ title: string; url: string; snippet: string }[]> {
   const { data } = await axios.get(SEARXNG_URL, {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'

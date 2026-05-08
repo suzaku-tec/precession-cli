@@ -19,6 +19,20 @@ export default class OllamaUtil {
     }
   }
 
+  /**
+   * ollamaに質問して回答を得る
+   * @param prompt プロンプト
+   * @returns 回答
+   */
+  static async question(prompt: string): Promise<string> {
+    const res = await ollama.chat({
+      model: 'gemma3:4b',
+      messages: [{ role: 'user', content: prompt }],
+      stream: false,
+    });
+    return res.message.content ?? "";
+  }
+
   static async ollamaToolCat(messages: { role: string; content: string }[], tools: Tool[]): Promise<any> {
     const response = await ollama.chat({
       model: 'qwen3',

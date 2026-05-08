@@ -23,7 +23,7 @@ export default class OllamaSearxngUtil {
 
     // 検索用のキーワード抽出
     const keywordsJson = await OllamaUtil.extractKeywords(question);
-    const searchStr = keywordsJson.keywords.join(" ");
+    const searchStr = keywordsJson.keywords.slice(0, 3).join(" ");
 
     const results = await webSearch(searchStr);
 
