@@ -7,3 +7,5 @@ voicevox:
 news:
   read:
     fmt: nikkei_fmt
+ollama:
+  model: gemma4:latest

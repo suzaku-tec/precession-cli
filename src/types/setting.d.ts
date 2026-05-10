@@ -1,5 +1,6 @@
 interface Setting {
   voicevox?: VoiceVoxSetting;
+  ollama?: OllamaSetting;
 }
 
 interface VoiceVoxSetting {
@@ -8,4 +9,8 @@ interface VoiceVoxSetting {
   domain: string;
   port: number;
   speedScale: number;
+}
+
+interface OllamaSetting {
+  model: string;
 }

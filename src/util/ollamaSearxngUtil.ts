@@ -3,6 +3,7 @@ import { webSearch } from './searxngUtil.ts';
 import type { ChatResponse } from 'ollama';
 import OllamaUtil from './ollamaUtil.ts';
 import logger from './logger.ts';
+import SettingUtil from './settingUtil.ts';
 
 export default class OllamaSearxngUtil {
 
@@ -33,8 +34,9 @@ export default class OllamaSearxngUtil {
 
     const prompt = `${question}\n\n以下はWeb検索結果です。参考にして日本語で答えてください。\n\n${context}`;
 
+    const model = SettingUtil.loadSettings().ollama?.model ?? 'gemma3:4b';
     const res = await ollama.chat({
-      model: 'gemma3:4b',
+      model,
       messages: [{ role: 'user', content: prompt }],
       stream: false,
     });
