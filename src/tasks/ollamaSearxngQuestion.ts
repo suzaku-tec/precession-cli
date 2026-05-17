@@ -60,6 +60,9 @@ logprobs?: ${answer.logprobs ?? "None Logprobs"};
       await fs.writeFile(filePath, writeData, 'utf-8');
       logger.info(`Writing response data to file: ${filePath}`);
       return Promise.resolve();
+    }).catch((err) => {
+      logger.error(`Error executing OllamaSearxngQuestion: ${err}`);
+      return Promise.resolve();
     });
   }
 }
